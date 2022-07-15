@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Library">
+  <DataContextMoniker Name="/LibraryDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5f0fa100-bfe9-4d6e-ad6b-39441191ab78" absoluteBounds="6.25, 0.875, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/LibraryDataContext/action" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c94cef2-d54c-409b-831b-19bee174a21c" absoluteBounds="6.265, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0fdbc47a-4afc-4c20-8332-ee6e389d848d" absoluteBounds="3.5, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/LibraryDataContext/user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d4f8333f-9221-4210-b7f7-1b5e3be3506b" absoluteBounds="3.515, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3f0f7470-4484-492f-b5fd-a40c68464758" absoluteBounds="0.75, 1, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LibraryDataContext/catalog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b78d9a5-9bef-42d5-adb9-ef34e5b02dc1" absoluteBounds="0.765, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bbb0f6de-3966-4c2a-a58e-9d0a18a36872" absoluteBounds="3.5, 1, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LibraryDataContext/state" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dcf7c9dd-eb70-440f-b2b7-3374a0b0f1a2" absoluteBounds="3.515, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.69314697265625); (7.25 : 4.69314697265625); (7.25 : 2.45359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LibraryDataContext/user/user_action" />
+      <nodes>
+        <classShapeMoniker Id="0fdbc47a-4afc-4c20-8332-ee6e389d848d" />
+        <classShapeMoniker Id="5f0fa100-bfe9-4d6e-ad6b-39441191ab78" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.69314697265625); (6.25 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LibraryDataContext/state/state_action" />
+      <nodes>
+        <classShapeMoniker Id="bbb0f6de-3966-4c2a-a58e-9d0a18a36872" />
+        <classShapeMoniker Id="5f0fa100-bfe9-4d6e-ad6b-39441191ab78" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.69314697265625); (3.5 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LibraryDataContext/catalog/catalog_state" />
+      <nodes>
+        <classShapeMoniker Id="3f0f7470-4484-492f-b5fd-a40c68464758" />
+        <classShapeMoniker Id="bbb0f6de-3966-4c2a-a58e-9d0a18a36872" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

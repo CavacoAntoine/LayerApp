@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PT" Class="LibraryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=PT;Integrated Security=True" SettingsObjectName="DataLayer.Properties.Settings" SettingsPropertyName="PTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.actions" Member="actions">
+    <Type Name="action">
+      <Column Name="action_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="state_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="user_action" Member="user" ThisKey="email" OtherKey="email" Type="user" IsForeignKey="true" />
+      <Association Name="state_action" Member="state" ThisKey="state_id" OtherKey="state_id" Type="state" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="email" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="user_action" Member="actions" ThisKey="email" OtherKey="email" Type="action" />
+    </Type>
+  </Table>
+  <Table Name="dbo.catalogs" Member="catalogs">
+    <Type Name="catalog">
+      <Column Name="isbn" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="author" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="catalog_state" Member="states" ThisKey="isbn" OtherKey="isbn" Type="state" />
+    </Type>
+  </Table>
+  <Table Name="dbo.states" Member="states">
+    <Type Name="state">
+      <Column Name="state_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="isbn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="available" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="state_action" Member="actions" ThisKey="state_id" OtherKey="state_id" Type="action" />
+      <Association Name="catalog_state" Member="catalog" ThisKey="isbn" OtherKey="isbn" Type="catalog" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
